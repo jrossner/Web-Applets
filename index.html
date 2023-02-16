@@ -8,7 +8,20 @@
         <script src="https://cdn.plot.ly/plotly-2.6.3.min.js"></script>
     </head>
     <body>
-        <div> Hello World!</div>
-        <div> Counter coming soon </div>
+        <p>
+            <h1>Tally Counter</h1>
+            <div id="ch1"></div>
+        </p>
+        <script>
+            ch1 = document.getElementById("ch1");
+            Plotly.newPlot(ch1,
+                           [{
+                               type: "gauge",
+                               mode: "number",
+                               value: 101
+                           }],
+                           {
+                               title: "Active Count"
+                           })     
     </body>
 </html>
