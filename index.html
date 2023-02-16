@@ -6,16 +6,34 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="mobile-web-app-capable" content="yes">
         <script src="https://cdn.plot.ly/plotly-2.6.3.min.js"></script>
+        <script>
+        </script>
     </head>
     <body>
         <p>
-            <h1 style="align-text:center;">Tally Counter</h1>
-            <p id="ch1" style="align:center;"></p>
-            <button onclick="updateCount(1)">+1</button>
-            <button onclick="updateCount(-1)">-1</button>
+            <h1 style="text-align:center;">Tally Counter</h1>
+            <p id="ch1" style="height:10%;width:50%;margin-left:auto;margin-right:auto;"></p>
+            <p style="margin:auto;">
+                <button onclick="updateCount(1)">+1</button>
+                <button onclick="updateCount(-1)">-1</button>
+            </p>
         </p>
         <script>
             let tally = 0;
+            ch1 = document.getElementById("ch1");
+            Plotly.newPlot(ch1,
+                           [{
+                               type: "indicator",
+                               mode: "number",
+                               value: tally,
+                               title: { 
+                                   text: "Active Count", 
+                                   font: { 
+                                       size: 24 
+                                   } 
+                               }
+                           }],
+                           {})
             function updateCount(val) {
                 tally += Number(val);
                 ch1 = document.getElementById("ch1");
