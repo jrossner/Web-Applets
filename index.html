@@ -11,22 +11,28 @@
         <p>
             <h1 style="align-text:center;">Tally Counter</h1>
             <p id="ch1" style="align:center;"></p>
+            <button onclick="updateCount(1)">+1</button>
+            <button onclick="updateCount(-1)">-1</button>
         </p>
         <script>
-            ch1 = document.getElementById("ch1");
-            Plotly.newPlot(ch1,
-                           [{
-                               type: "indicator",
-                               mode: "number",
-                               value: 101,
-                               title: { 
-                                   text: "Active Count", 
-                                   font: { 
-                                       size: 24 
-                                   } 
-                               }
-                           }],
-                           {})
+            let tally = 0;
+            function updateCount(val) {
+                tally += Number(val);
+                ch1 = document.getElementById("ch1");
+                Plotly.newPlot(ch1,
+                               [{
+                                   type: "indicator",
+                                   mode: "number",
+                                   value: tally,
+                                   title: { 
+                                       text: "Active Count", 
+                                       font: { 
+                                           size: 24 
+                                       } 
+                                   }
+                               }],
+                               {})
+            }
         </script>
     </body>
 </html>
