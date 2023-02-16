@@ -6,18 +6,26 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="mobile-web-app-capable" content="yes">
         <script src="https://cdn.plot.ly/plotly-2.6.3.min.js"></script>
-        <script>
-        </script>
+        <style>
+            .button {
+                width: 33%;
+                margin: auto;
+            }
+            .plus {
+                background-color: #4CAF50;
+            }
+            .minus {
+                background-color: #F94449;
+            }
+        </style>
     </head>
     <body>
-        <p>
-            <h1 style="text-align:center;">Tally Counter</h1>
-            <p id="ch1" style="height:10%;width:50%;margin-left:auto;margin-right:auto;"></p>
-            <p style="margin:auto;">
-                <button onclick="updateCount(1)">+1</button>
-                <button onclick="updateCount(-1)">-1</button>
-            </p>
-        </p>
+        <h1 style="text-align:center;">Tally Counter</h1>
+        <p id="ch1" style="height:10%;width:50%;margin-left:auto;margin-right:auto;"></p>
+        <button class="button plus" onclick="updateCount(1)">+1</button>
+        <br>
+        <button class="button minus" onclick="updateCount(-1)">-1</button>
+
         <script>
             let tally = 0;
             ch1 = document.getElementById("ch1");
@@ -34,6 +42,7 @@
                                }
                            }],
                            {});
+            
             function updateCount(val) {
                 tally += Number(val);
                 ch1 = document.getElementById("ch1");
